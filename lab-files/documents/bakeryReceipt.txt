@@ -1,0 +1,15 @@
+Baking Goods Supplier
+
+Plain Flour 39511: $25.99
+Whole Wheat Flour 89533: $25.99
+Granulated Sugar 29693: $19.99
+Brown Sugar 79528: $19.99
+Cocoa Powder 49469: $15.99
+Baking Powder 38089: $12.99
+Baking Soda 56924: $13.99
+Ground Almonds 28001: $25.99
+Shredded Coconut 17130: $20.99
+
+Sub Total: $181.91
+Tax [10%]: $18.19
+Grand Total: $200.10

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Whodunnit</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/css/custom.css') }}">
+  </head>
+  <body>
+    <div class="bg-image" style="background-image: url('/static/bg3.webp'); filter: blur(2px) brightness(75%);"></div>
+    <div class="container-lg text-white mb-2 p-4 position-absolute top-50 start-50 translate-middle h-100 w-50">
+      <div class="container-lg w-100 h-100">
+        <!-- Suspect  -->
+        <div class="container-lg mt-2">
+          <div id="suspectInfo">
+            {% for i in range(1, 4) %}
+            <div id="suspect{{ i }}" class="suspect" style="display: none;">
+              <!-- Image -->
+              <img src="{{ suspects[i-1].image }}" class="img-fluid"><br>
+              <!-- Chat Box -->
+              <div><h6> {{suspects[i-1].name}}</h6></div>
+              <div id="chat{{ i }}" class="chat-box mt-2 p-2"></div>
+              <!-- Enter Message Box -->
+              <input type="text" id="message{{ i }}" class="form-control" placeholder="Type a message and press Enter" disabled>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        
+        <!-- Change Context -->
+        <div class="container-sm w-100 justify-content-center mt-2">
+            <div class="container-sm w-50 d-flex btn-group justify-content-center text-white" role="group">
+                <button type="button" class="btn toggle" onclick="toggleSuspect(1)">1</button>
+                <button type="button" class="btn toggle" onclick="toggleSuspect(2)">2</button>
+                <button type="button" class="btn toggle" onclick="toggleSuspect(3)">3</button>
+            </div>
+        </div>
+        
+        <!-- Form to submit selected suspect -->
+        <div class="container-sm mt-2 d-flex width-100 justify-content-center">
+          <form action="/results" method="POST">
+            <input type="hidden" name="choice" value="1" id="choice">
+            <button type="submit" class="btn accuse text-white">Accuse</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+    <script>
+      var socket = io();
+
+      socket.on('response', function(data) {
+          var chat = document.getElementById('chat' + data.suspect);
+          chat.innerHTML += '<p>Suspect: ' + data.response + '</p>';
+          enableInput(data.suspect);
+      });
+
+      function sendMessage(suspect) {
+          var messageInput = document.getElementById('message' + suspect);
+          var message = messageInput.value;
+          if (message.trim() !== "") {
+              var chatBox = document.getElementById('chat' + suspect);
+              chatBox.innerHTML += '<p>USER: ' + message + '</p>';
+              messageInput.value = '';
+              disableInput(suspect);
+
+              fetch('/send_message', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({ message: message, suspect: suspect })
+              })
+              .then(response => {
+                  if (!response.ok) {
+                      return response.json().then(error => {throw new Error(error.error)});
+                  }
+                  return response.json();
+              })
+              .then(data => {
+                  chatBox.innerHTML += '<p>SUSPECT: ' + data.response + '</p>';
+                  enableInput(suspect);
+              })
+              .catch(error => {
+                  console.error('Error:', error);
+                  enableInput(suspect);
+              });
+          }
+      }
+
+      function disableInput(suspect) {
+          var input = document.getElementById('message' + suspect);
+          input.disabled = true;
+          input.style.backgroundColor = '#d3d3d3';
+      }
+
+      function enableInput(suspect) {
+          var input = document.getElementById('message' + suspect);
+          input.disabled = false;
+          input.style.backgroundColor = '';
+          input.focus();
+      }
+
+      function toggleSuspect(suspect) {
+          for (var i = 1; i <= 3; i++) {
+              var suspectElement = document.getElementById('suspect' + i);
+              if (suspectElement) {
+                  suspectElement.style.display = 'none';
+                  disableInput(i);
+              }
+          }
+          var selectedSuspect = document.getElementById('suspect' + suspect);
+          if (selectedSuspect) {
+              selectedSuspect.style.display = 'block';
+              enableInput(suspect);
+              document.getElementById('choice').value = suspect; // Update the hidden input field with the selected suspect
+          } else {
+              console.error('Suspect element not found:', suspect);
+          }
+      }
+
+      // Show the first suspect by default
+      document.addEventListener('DOMContentLoaded', function() {
+          toggleSuspect(1);
+
+          // Add event listeners to input fields for Enter key press
+          for (var i = 1; i <= 3; i++) {
+              (function(i) {
+                  var input = document.getElementById('message' + i);
+                  input.addEventListener('keydown', function(event) {
+                      if (event.key === 'Enter' && !input.disabled) {
+                          sendMessage(i);
+                      }
+                  });
+              })(i);
+          }
+      });
+    </script>
+  </body>
+</html>

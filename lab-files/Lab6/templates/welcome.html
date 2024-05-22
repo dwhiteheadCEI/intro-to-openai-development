@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Whodunnit</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/css/custom.css') }}">
+  </head>
+  <body>
+    <div class="bg-image"></div>
+    <div class = "container-sm text-white mb-2 p-2 position-absolute top-50 start-50 translate-middle h-50">
+      <!-- Opening Dialogue -->
+      <div class="container-sm w-25 h-75 popup">
+          <div class="p-2 h-100 d-flex align-items-center">
+              <p class="fw-light">
+                  Welcome back Detective.
+                  </br>
+                  There's a new case for you on your desk. I think it will be of great interest to you.
+                  </br>
+                  -Lab 6
+              </p>
+          </div>
+      </div>
+      <!-- Start Setup Button -->
+      <div class="d-flex mt-2 justify-content-center">
+          <a href="/setup" class="btn btn-outline-light">Open Case</a>
+          <!-- <button type="button" class="btn btn-outline-light">Open Case</button> -->
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  </body>
+</html>

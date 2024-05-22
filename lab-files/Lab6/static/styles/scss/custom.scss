@@ -1,0 +1,10 @@
+// Variable overrides first
+$primary: #2f0d6e;
+
+body {
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom right, $primary, #0a2f50)
+}
+
+// Import Bootstrap
+@import "../../../node_modules/bootstrap/scss/bootstrap";

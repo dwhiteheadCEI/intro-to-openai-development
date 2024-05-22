@@ -1,0 +1,12 @@
+I am making a crime mystery game and would like some help. 
+The image I am trying to make is of a character in the 1940's, standing in an ornate room inside of a british mansion. 
+Make me a picture with the following parameters:
+
+1. The picture should have a sepia filter over it to make it look old fashioned. 
+2. The character should be centered in the photo, with plenty of room on each side of her to show off objects and the mansion.
+3. The photo should be appropriate for all ages.
+4. Include objects in the room behind the character that pertain to their description, but keep it subtle.
+5. Add a subtle outline around the character to make them stand out from the background more.
+5. The style is realistic, do not be cartoonish.
+
+Here is the character's description:
