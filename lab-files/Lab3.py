@@ -1,4 +1,5 @@
 from openai import OpenAI
+import requests
 
 def main():
   client = OpenAI(api_key="")

@@ -49,6 +49,34 @@ With this:
     else:
         return response.choices[0].message.content
 
+Let's add another tool:
+  {
+    "type": "function",
+    "function": {
+      "name": "get_random_recipe",
+      "description": "Get a random recipe. Best used when somebody is looking for inspiration on what food to cook.",
+    }
+  }
+
+and add this function definition: 
+  def get_random_recipe():
+    url = "www.themealdb.com/api/json/v1/1/random.php"
+    response = requests.post(url)
+    return response
+
+Now let's adjust our response to be the following:
+  if(response.choices[0].finish_reason == "tool_calls"):
+    if(response.choices[0].message.tool_calls[0].function.name == "get_latest_receipt"):
+      return "Sure, here is your latest receipt: " + get_latest_receipt()
+    elif(response.choices[0].message.tool_calls[0].function.name == "get_random_recipe"):
+      recipe_response = get_random_recipe()
+      recipe_json = recipe_response.json()
+      recipe = recipe_json['meals'][0]
+      return f"Here's a random recipe I found: {recipe['strMeal']} -- {recipe['strInstructions']}"
+  else:
+    return response.choices[0].message.content
+
+Run the application and try out a variety of prompts. Be sure to test out the tools and note how it is able to use the verbiage of your message to the description we set. 
 
 ## Extension 
 As our tools grow in complexity, we can introduce further and further calls to OpenAI to help us in generating the appropriate context data. For instance, we could call our chat completion endpoint with a set of available tools, then if our response shows tools used we can run those tools, add the data from those tools to another chat completion prompt and call OpenAI again.
