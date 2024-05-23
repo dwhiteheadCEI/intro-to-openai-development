@@ -1,6 +1,5 @@
 from openai import OpenAI
 
-
 def main():
   client = OpenAI(api_key="")
   messages = [        

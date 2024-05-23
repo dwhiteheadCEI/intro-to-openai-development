@@ -1,13 +1,4 @@
 from openai import OpenAI
-import sqlite3
-
-# Connect to SQLite database (or create it if it doesn't exist)
-conn = sqlite3.connect('chat_history.db')
-c = conn.cursor()
-
-# Create a table to store messages
-c.execute('''CREATE TABLE IF NOT EXISTS history (role TEXT, content TEXT)''')
-conn.commit()
 
 def main():
   client = OpenAI(api_key="")
@@ -33,14 +24,6 @@ def call_openAI(client, messages):
 def update_history(messages, role, message):
   messages.append({"role": role, "content": message})
   return messages
-
-def save_message(role, content):
-  c.execute("INSERT INTO history (role, content) VALUES (?, ?)", (role, content))
-  conn.commit()
-
-def load_history():
-  c.execute("SELECT role, content FROM history")
-  return c.fetchall()
     
 if __name__ == "__main__":
   main()

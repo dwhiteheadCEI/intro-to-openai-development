@@ -70,13 +70,14 @@ Another issue presented is that our chat history currently has no way of persist
 There are a number of valid solutions to create and maintain chat history storage across sessions and ultimately it will depend on your use case to identify what fits the criteria of your application. 
 
 Here's some popular choices: 
-1. Local File Storage: Really only useful for personal applications and testing, but easy to implement and good for prototypes and PoCs.
-2. SQL Database: Integrate SQL database using SQLite, PostgreSQL, MySQL. Allows for much cleaner data management but may require more additional configuration as you add user authentication and scale an application.
-3. Azure CosmosDB: Highly scalable, easy to use once it is set up, and great at handling large data sets but costly.
-4. NoSQL DB Options: One such example being MongoDB, good for unstructured data and scalable
+1. Local File Storage: Really only useful for personal applications and testing and not for much else, but easy to implement and good for quick prototypes and PoCs.
+2. SQL Database: Integrate SQL database using a library like SQLite, PostgreSQL, or MySQL. Allows for much cleaner data management but may require more additional configuration as you add user authentication and scale an application.
+3. Azure CosmosDB: Highly scalable, easy to use once it is set up, and great at handling large data sets but costly. Note the AWS DynamoDB alternative.
+4. NoSQL DB Options: One such example being MongoDB, good for unstructured data and scalable.
 
 ## Additional Options
 
 The topic of chat history is currently very prevalent in ai-based solutions and as such, there's a lot of great documentation to look at for further development:
+
 [Semantic Kernel chat history and memory](https://learn.microsoft.com/en-us/semantic-kernel/overview/?tabs=Csharp)
 [Langchain message history](https://python.langchain.com/v0.1/docs/expression_language/how_to/message_history/)

@@ -57,12 +57,10 @@ Replace the 'return' line in your _'get-tts-response'_ function definition with 
 
 This response is going to return a .mp3 file to our specified folder. Check [this page](https://platform.openai.com/docs/guides/text-to-speech) for supported voices as well as supported file output types.
 
-Now run the following commands:
-    cd lab-files
-    py lab4.py
+Now run the application again.
 
-Now, navigate to the file created and give it a listen.
+Navigate to the file that was created and give it a listen.
 
-How did the resulting file turn out? If it's not what you expected or would like to hear variations try to edit the prompt or voice being used. 
+How did the file turn out? If it's not what you expected or you would like to hear variations try editing the prompt or change the voice being used. 
 
 Now that we've walked through how to use some of these models, let's take a look at a common problem in openAI-based solutions, maintaining chat history.
