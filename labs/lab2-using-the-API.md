@@ -49,11 +49,11 @@ Let's run our app:
 
 Awesome! We now have a chatbot that is able to take some data into account, identify when to use that data and output responses using that data. 
 
-## Extending our App
+## Customizing our App
 There are a number of optional parameters we can add to our call to help make our app fit our use-case a little better.
 
 The first change we'll make is with the _'temperature'_ parameter. 
-_'Temperature'_ is how we tell our chatbot how creative we want it to be in its responses. The value of the temperature can be between 0-2, with 0 being the least variety and 2 being the most. For this app, let's add the following:
+_'Temperature'_ is how we tell our chatbot how creative we want it to be in its responses. The value of the temperature can be between 0-2, with 0 being the least variety and 2 being the most. Our bakery app right now is for relaying old data, so we really don't want it to be giving a variety of responses for the same question. For this app, let's add the following:
     temperature = 0.2
 
 The next thing that we'll add is the _'presence_penalty'_ parameter.

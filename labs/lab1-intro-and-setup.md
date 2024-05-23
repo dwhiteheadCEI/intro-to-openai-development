@@ -1,9 +1,9 @@
 # Lab 1: OpenAI Introduction and Setup
 Welcome!
 
-This lab series is designed to serve as a companion guide to official [OpenAI documentation](https://platform.openai.com/docs/overview) for those who are interested in exploring OpenAI for the first time. As the labs progress we'll learn about chat completion, prompt engineering, image creation, and then get more in depth with tools such as Langchain and Semantic Kernel. 
+This lab series is designed to serve as a companion guide to official [OpenAI documentation](https://platform.openai.com/docs/overview) for those who are interested in exploring OpenAI for the first time. As the labs progress we'll learn about chat completion, prompt engineering, image creation, and work towards creating a custom app that utilizes the openAI API. 
 
-This first lab is designed as your introduction to OpenAI's system, its various offerings. We'll go over the setup of how you can start accessing some of these tools as well as the basics of how to start using them. We'll also go briefly go over prompt engineering, how we can be better prompt engineers and some key tips for getting more pointed results.
+This first lab is designed as your introduction to OpenAI's system and its various offerings. We'll go over the setup of how you can start accessing some of these tools as well as some basics concepts and tips. We'll also go briefly go over prompt engineering, how we can be better prompt engineers and some key considerations for getting more pointed results.
 
 ## Prerequisites
 * None
@@ -20,16 +20,18 @@ Once you are logged in, you'll have the option of navigating to ChatGPT or the O
 
 Now that you're in, let's start with a basic chat. On the left is all of our chat sessions. Hovering over them, we can export them for sharing, give them specific names for easily finding them later or delete them.
 
-Lets create a new chat by clicking next to the ChatGPT button at the top left. After creating a new chat, we can choose our chat model located at the top left. We'll get into models later, but for now let's select "GPT-3.5". Try asking ChatGPT for the answer to a question that you know the answer to in the "Message ChatGPT" prompt window.
+Lets create a new chat by clicking next to the ChatGPT button at the top left. After creating a new chat, we can choose our model located at the top left. We'll get into models later, but for now let's select "GPT-3.5". Try asking ChatGPT for the answer to a question that you know the answer to in the "Message ChatGPT" prompt window.
 
 Did it give you an expected answer back? Great! If not, we'll get into how to get more expected responses later in the lab.
 
 Next, let's try telling ChatGPT something that we want it to remember. For instance, "My name is Fred". After it responds, let's ask it "What is my name?" Note that the bot responds with the name we told it before. This is because ChatGPT has built-in chat memory that it can utilize to help it answer prompts. This can be very useful for continuous workflows with a bot as you change things on the fly or are just looking for a a back and forth conversation. Note that these chats, as well as any chats you create with the service have a session-based memory. This means that any time you create a new session, all history will be reserved to that session and won't be accessed by any other session that was or will be created.
 
 ## Prompt Engineering
-Great! So we have the basics down, but we'd like to extend our functionality a bit. 
+Great! So we have the basics down, but we'd like to extend our functionality a bit. How can we do that with just text?
 
-Prompt engineering is the process of shaping a prompt to elicit desired responses. It's not unlike phrasing a question differently depending on who you are speaking to. The most process for prompt engineering is simply adjusting the wording, structure or context of the prompt. The more fine-tuned your prompt is, the more consistent of results you can expect.
+Prompt engineering is the process of shaping a prompt to elicit desired responses. It's not unlike phrasing a question differently depending on who you are speaking to. The process for prompt engineering is simply adjusting the wording, structure or context of the prompt. The more fine-tuned your prompt is, the more consistent of results you can expect.
+
+It's important to remember that when we distill ChatGPT down to its most basic form, it's not much more than the predictive text you would find on other apps like sms or google. When you ask it a question about something complex, it is _not_ understanding the concepts required to form an opinion on that subject, it is predicting the answer you want it to give you and giving it to you based off of a huge database of potential resources to pull from. We're not teaching it how to do anything, nor is it learning how to do anything on its own (at least we hope!), it's just really good at finding answers to questions and reshaping those answers to fit a more specific prompt.
 
 Let's create a new session.
 Ask a pointed question again, but this time lets define some _intent_.
@@ -67,17 +69,19 @@ After a prompt has been answered, you'll be given some options to read the respo
 
 [Here's some tips on how best to form prompts via openAI's documentation](https://platform.openai.com/docs/guides/prompt-engineering/six-strategies-for-getting-better-results)
 
+There have also been, and will continue to be for some time, a number of studies done on the efficacy of certain verbiage used and format of prompts and their consistency in getting expected results back. Many people will swear by certain practices or adopt certain habits and some may be more worthwhile than others but ultimately it is (currently) not an exact science. I greatly suggest looking into some of these studies and forming an opinion for yourself based on a variety of different sources. I recommend the ones that provide code examples.
+
 ## Using different models
 https://platform.openai.com/docs/models/overview
 
-There are a number of models offered as part of the OpenAI API as well as exposed through ChatGPT. Be sure to review some of the options using the link above!
+There are a number of models offered as part of the OpenAI API as well as exposed through ChatGPT. Be sure to review some of the options using the link above! We'll be going over some of these models in lab3, but for now take note of the different chat completion models. If you have a premium subscription to ChatGPT, try some of them out and see how their responses differ.
 
 ## Custom GPTs
-ChatGPT also gives you the option to use community-made versions of ChatGPT that come with some added customization.
+ChatGPT Premium also gives you the option to use community-made versions of ChatGPT that come with some added customization.
 
 Click on the "Explore GPTs" button and try out some custom versions. There are a lot of versions available, so try and choose one that has a ues case you are familiar with and test it out.
 
-Now, let's add our own.
+Now, let's add our own:
 
 Navigate to the "Create GPT" button at the top right.
 
@@ -89,6 +93,6 @@ Next, let's check out the 'Conifigure' panel we can see where we can start to be
 There are some additional configurations you can utilize depending on your use case such as document uploading which will persist that knowledge through any conversation you have with the bot, a code interpreter which enables a bot to run code, an image generation toggle and a web browsing toggle. 
 
 The next most important aspect of the configuration is custom [actions](https://platform.openai.com/docs/actions/introduction).
-Actions allow our custom GPT to extend the functionality of our bot to do more than answering prompts. We'll be taking a look at actions in lab 3, so be sure to check it out if you're interested!
+Actions allow our custom GPT to extend the functionality of our bot to do more than answering prompts. We'll be taking a look at actions in lab 3.
 
-Note that any custom chatGPT created is NOT private and as such you shouldn't use any private personal or client information at any point.
+Note that any custom chatGPT created is NOT private and as such you shouldn't use any confidential information at any point.

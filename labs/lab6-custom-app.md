@@ -26,10 +26,10 @@ Run the app and proceed to the setup screen. A default scenario will load that s
 
 After the setup page is done loading (note: the call to DallE-3 can take a moment), you'll be presented with images of the suspects as well as chat windows that will allow you to talk to them and ask them questions. The game tends to work best if you 'go along with it' so to speak, but feel free to experiment and have fun! 
 
-Once you feel as though you have a good idea of who did the deed, accuse them and see if you're hunch was right.
+Once you feel as though you have a good idea of who did the deed, accuse them and see if your deductive skills paid off!
 
 ## Tasks
-Our friend is also quite familiar with ChatGPT and has gone ahead and made us some background images to use as well as generated some sample prompts we can use to serve as descriptions.
+Our friend is also quite familiar with ChatGPT and has gone ahead and made us some background images to use as well as generated some sample prompts to as character descriptions.
 
 1. (Optional) Your first task is to adjust the existing prompts found in these files:
 * 'offense.txt' : The default description for the criminal offense. Can also be changed using the interface while running the app.
