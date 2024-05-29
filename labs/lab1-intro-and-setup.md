@@ -13,18 +13,28 @@ OpenAI's offerings as a platform are vast. Let's start by going through the most
 
 If you don't already have an OpenAI account, click [here](https://openai.com/) and set one up
 
-Note: For the rest of this lab we will be using a premium subscription to OpenAI. If you don't have access to a premium subscription, you are still able to use the ChatGPT 3.5 model for free, in which case you can still take note of some of our tips for chat completion prompt engineering.
+Note: For the rest of this lab we will be using a plus subscription to OpenAI. If you don't have access to a premium subscription, you are still able to use the ChatGPT 3.5 model for free, in which case you can still take note of some of our tips for chat completion prompt engineering.
+
+If you'd like to sign up for a plus account, sign up [here](https://openai.com/chatgpt/pricing/)
+
+Please also note that a subscription to ChatGPT plus does _NOT_ include any tokens to be used in the API. For all intents and purposes, they are separate services that are used and paid for independently but can be accessed via the same login.
 
 ## Introduction
 Once you are logged in, you'll have the option of navigating to ChatGPT or the OpenAI API. Let's stick to ChatGPT for now.
 
 Now that you're in, let's start with a basic chat. On the left is all of our chat sessions. Hovering over them, we can export them for sharing, give them specific names for easily finding them later or delete them.
 
-Lets create a new chat by clicking next to the ChatGPT button at the top left. After creating a new chat, we can choose our model located at the top left. We'll get into models later, but for now let's select "GPT-3.5". Try asking ChatGPT for the answer to a question that you know the answer to in the "Message ChatGPT" prompt window.
+Lets create a new chat by clicking next to the ChatGPT button at the top left.
+
+![image](../assets/screenshots/lab1-1.png)
+
+After creating a new chat, we can choose our model located at the top left. We'll get into models later, but for now let's select "GPT-3.5". Try asking ChatGPT for the answer to a question that you know the answer to in the "Message ChatGPT" prompt window.
 
 Did it give you an expected answer back? Great! If not, we'll get into how to get more expected responses later in the lab.
 
-Next, let's try telling ChatGPT something that we want it to remember. For instance, "My name is Fred". After it responds, let's ask it "What is my name?" Note that the bot responds with the name we told it before. This is because ChatGPT has built-in chat memory that it can utilize to help it answer prompts. This can be very useful for continuous workflows with a bot as you change things on the fly or are just looking for a a back and forth conversation. Note that these chats, as well as any chats you create with the service have a session-based memory. This means that any time you create a new session, all history will be reserved to that session and won't be accessed by any other session that was or will be created.
+Next, let's try telling ChatGPT something that we want it to remember. For instance, "My name is Fred". After it responds, let's ask it "What is my name?" Note that the bot responds with the name we told it before. This is because ChatGPT has built-in chat memory that it can utilize to help it answer prompts. This can be very useful for continuous workflows with a bot as you change things on the fly or are just looking for a a back and forth conversation. 
+
+Note that these chats, as well as any chats you create with the service have a session-based memory. This means that any time you create a new session, all history will be reserved to that session and won't be accessed by any other session that was or will be created.
 
 ## Prompt Engineering
 Great! So we have the basics down, but we'd like to extend our functionality a bit. How can we do that with just text?
@@ -74,12 +84,17 @@ There have also been, and will continue to be for some time, a number of studies
 ## Using different models
 https://platform.openai.com/docs/models/overview
 
-There are a number of models offered as part of the OpenAI API as well as exposed through ChatGPT. Be sure to review some of the options using the link above! We'll be going over some of these models in lab3, but for now take note of the different chat completion models. If you have a premium subscription to ChatGPT, try some of them out and see how their responses differ.
+There are a number of models offered as part of the OpenAI API as well as exposed through ChatGPT. Be sure to review some of the options using the link above! We'll be going over some of these models in lab3, but for now take note of the different chat completion models. If you have a plus subscription to ChatGPT, try some of them out and see how their responses differ. Here is where you can change the model:
+![image](../assets/screenshots/lab1-2.png)
+
 
 ## Custom GPTs
-ChatGPT Premium also gives you the option to use community-made versions of ChatGPT that come with some added customization.
+ChatGPT Plus also gives you the option to use community-made versions of ChatGPT that come with some added customization.
 
-Click on the "Explore GPTs" button and try out some custom versions. There are a lot of versions available, so try and choose one that has a ues case you are familiar with and test it out.
+Click on the "Explore GPTs" button and try out some custom versions. 
+![image](../assets/screenshots/lab1-3.png)
+
+There are a lot of versions available, so try and choose one that has a ues case you are familiar with and test it out.
 
 Now, let's add our own:
 

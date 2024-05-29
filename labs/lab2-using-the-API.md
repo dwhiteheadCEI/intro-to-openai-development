@@ -9,6 +9,10 @@ Now that we have a better understanding of ChatGPT and what it's capabilities ar
 ## Setup
 First, we'll need to generate a new Project API key. Locate the API key page of your OpenAI account [here](https://platform.openai.com/api-keys)
 
+You'll also want to make sure you have available credits on your account.
+You can check your available API credits [here](https://platform.openai.com/usage)
+If no credits are available, be sure to add billing and allowance [here](https://platform.openai.com/settings/organization/billing/overview)
+
 In VSCode let's open a terminal and run the following command:
     pip install openai
 
