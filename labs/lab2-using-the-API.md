@@ -16,7 +16,7 @@ If no credits are available, be sure to add billing and allowance [here](https:/
 In VSCode let's open a terminal and run the following command:
     pip install openai
 
-Now, let's work on our first lab file. Navigate to the "lab-files" folder and select "BakeryChatbot.py". 
+Now, let's work on our first lab file. Navigate to the "lab-files" folder and select "lab2.py". 
 
 At the top, take note of how we are setting up our OpenAI client, be sure to replace the "YOUR_API_KEY" with the key you just generated. 
 
